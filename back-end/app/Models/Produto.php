@@ -29,4 +29,8 @@ class Produto extends Model
             set: fn($value) => $value,
         );
     }
+
+    public function pedido(){
+        return $this->belongsTo(Pedido::class,'codPedido','id');
+    }
 }

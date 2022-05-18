@@ -61,6 +61,9 @@ class Cliente extends Model
             set: fn($value) => $value,
         );
     }
+    public function pedidos(){
+        return $this->hasMany(Pedido::class, 'codCliente', 'id' );
+    }
 
 
 }
