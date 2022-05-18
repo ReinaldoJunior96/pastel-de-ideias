@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(ClienteController::class)->group(function(){
     Route::get('/clientes', 'index')->name('listar.clientes');
-    Route::post('/clientes', 'store')->name('criar.clientes');
+    Route::get('/clientes/{id}', 'show')->name('listar.unico.cliente');
+    Route::post('/clientes', 'store')->name('criar.cliente');
+    Route::put('/clientes/alterar/{id}', 'update')->name('update.cliente');
+    Route::delete('/clientes/deletar/{id}', 'delete')->name('delete.cliente');
 });
