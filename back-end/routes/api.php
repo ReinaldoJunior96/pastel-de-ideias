@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(ClienteController::class)->group(function(){
-    Route::get('/clientes', 'index')->name('list.clientes');
+    Route::get('/clientes', 'index')->name('listar.clientes');
+    Route::post('/clientes', 'store')->name('criar.clientes');
 });
