@@ -34,7 +34,7 @@ class ClienteRequest extends FormRequest
             'endereco' => 'required|max:100',
             'complemento' => 'max:50',
             'bairro' => 'required',
-            'cep' => 'max:10',
+            'cep' => 'required|max:10',
         ];
     }
 

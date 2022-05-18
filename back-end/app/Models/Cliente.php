@@ -11,7 +11,7 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome', 'email', 'dataNascimento', 'endereco', 'complemento', 'cep'
+        'nome', 'email', 'telefone', 'dataNascimento', 'endereco', 'complemento', 'cep'
     ];
 
     public function nome(): Attribute
@@ -23,6 +23,14 @@ class Cliente extends Model
     }
 
     public function email(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => $value,
+            set: fn($value) => $value,
+        );
+    }
+
+    public function telefone(): Attribute
     {
         return new Attribute(
             get: fn($value) => $value,
