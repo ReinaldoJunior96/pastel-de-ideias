@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PedidoRequest;
 use App\Models\Cliente;
 use App\Models\Pedido;
 use App\Models\Produto;
@@ -32,7 +33,7 @@ class PedidoController extends Controller
                 response()->json($pedidoEncontrado, 200);
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(PedidoRequest $request): JsonResponse
     {
         $this->pedido->codCliente = $request->codCliente;
         $this->pedido->codProduto = $request->codProduto;
