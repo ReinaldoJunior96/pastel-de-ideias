@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Pedido;
+use App\Models\Produto;
+use App\Notifications\NotificaCliente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -31,23 +34,26 @@ class PedidoController extends Controller
 
     public function store(Request $request): JsonResponse
     {
-        $this->pedido->nome = $request->nome;
-        $this->pedido->preco = $request->preco;
-        $this->pedido->pathImg = $request->pathImg;
+        $this->pedido->codCliente = $request->codCliente;
+        $this->pedido->codProduto = $request->codProduto;
 
-        return $this->pedido->save() ? response()->json('Success', 200) : response()->json('Error', 500);
+        if ($this->pedido->save()) {
+            $clienteQueFezPedido = Cliente::find($request->codCliente);
+            $produtoClienteQueFezPedido = Produto::find($request->codProduto);
+            $clienteQueFezPedido->notify(new NotificaCliente($clienteQueFezPedido, $produtoClienteQueFezPedido));
+            return response()->json('Success', 200);
+        }
+
+        return response()->json('Error', 500);
 
     }
 
     public function update(Request $request, $id): JsonResponse
     {
         $pedidoEncontrado = $this->pedido->find($id);
-        $pedidoEncontrado->nome = $request->nome;
-        $pedidoEncontrado->preco = $request->preco;
-        $pedidoEncontrado->pathImg = $request->pathImg;
-
+        $pedidoEncontrado->codCliente = $request->codCliente;
+        $pedidoEncontrado->codProduto = $request->codProduto;
         return $pedidoEncontrado->save() ? response()->json('Success', 200) : response()->json('Error', 500);
-
     }
 
     public function delete($id): JsonResponse

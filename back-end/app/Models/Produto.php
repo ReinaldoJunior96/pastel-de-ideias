@@ -11,10 +11,10 @@ class Produto extends Model
     use HasFactory;
 
     protected $fillable = [
-        'codCliente', 'codProduto'
+        'nome','preco','pathImg'
     ];
 
-    public function codCliente(): Attribute
+    public function nome(): Attribute
     {
         return new Attribute(
             get: fn($value) => $value,
@@ -22,15 +22,27 @@ class Produto extends Model
         );
     }
 
-    public function codProduto(): Attribute
+    public function preco(): Attribute
     {
         return new Attribute(
             get: fn($value) => $value,
             set: fn($value) => $value,
         );
     }
+
+    public function pathImg(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => $value,
+            set: fn($value) => $value,
+        );
+    }
+
+
 
     public function pedido(){
         return $this->belongsTo(Pedido::class,'codPedido','id');
     }
+
+
 }

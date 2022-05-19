@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
+use App\Notifications\NotificaCliente;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,7 @@ class ClienteController extends Controller
         $this->cliente->endereco = $request->endereco;
         $this->cliente->complemento = $request->complemento;
         $this->cliente->cep = $request->cep;
+
 
         return $this->cliente->save() ? response()->json('Success', 200) : response()->json('Error', 500);
 
