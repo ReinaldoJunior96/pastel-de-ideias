@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nome')->nullable();
             $table->decimal('preco', 9, 2)->nullable();
             $table->string('pathImg')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

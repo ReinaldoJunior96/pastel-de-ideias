@@ -67,5 +67,19 @@ class PedidoController extends Controller
             response()->json('Success', 200) : response()->json('Error', 500);
     }
 
+    public function onlyTrashed()
+    {
+        $pedidosDeletado = $this->pedido->onlyTrashed()->get();
+        return response()->json($pedidosDeletado, 200);
+    }
+
+    public function restoreTranshed($id)
+    {
+        $this->pedido->withTrashed()->whereId($id)->restore();
+        return response()->json('Success', 200);
+    }
+
+
+
 
 }

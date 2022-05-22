@@ -82,4 +82,16 @@ class ProdutoController extends Controller
         return $produtoEncontrado->delete() ?
             response()->json('Success', 200) : response()->json('Error', 500);
     }
+
+    public function onlyTrashed()
+    {
+        $produtosDeletado = $this->produto->onlyTrashed()->get();
+        return response()->json($produtosDeletado, 200);
+    }
+
+    public function restoreTranshed($id)
+    {
+        $this->produto->withTrashed()->whereId($id)->restore();
+        return response()->json('Success', 200);
+    }
 }

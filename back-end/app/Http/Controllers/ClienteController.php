@@ -71,4 +71,16 @@ class ClienteController extends Controller
             response()->json('Success', 200) : response()->json('Error', 500);
     }
 
+    public function onlyTrashed()
+    {
+        $clientesDeletados = $this->cliente->onlyTrashed()->get();
+        return response()->json($clientesDeletados, 200);
+    }
+
+    public function restoreTranshed($id)
+    {
+        $this->cliente->withTrashed()->whereId($id)->restore();
+        return response()->json('Success', 200);
+    }
+
 }

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('endereco')->nullable();
             $table->text('complemento')->nullable();
             $table->string('cep')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

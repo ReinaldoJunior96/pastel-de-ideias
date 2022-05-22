@@ -13,8 +13,8 @@ class NotificaCliente extends Notification
 {
     use Queueable;
 
-    private $cliente;
-    private $produto;
+    private Cliente $cliente;
+    private Produto $produto;
 
     /**
      * Create a new notification instance.
@@ -47,7 +47,7 @@ class NotificaCliente extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->greeting('Olá ' . $this->cliente->nome)
+            ->greeting('Olá,  ' . $this->cliente->nome)
             ->line('Este é um e-mail automatico sobre sua compra. Vou Detalhar seu pedido!')
             ->subject('Pastel de Ideias - Pedido realizado')
             ->line('Você realizou a compra de um '. $this->produto->nome)
