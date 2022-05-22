@@ -94,4 +94,12 @@ class ProdutoController extends Controller
         $this->produto->withTrashed()->whereId($id)->restore();
         return response()->json('Success', 200);
     }
+
+    public function forceDelete($id)
+    {
+        $post = $this->produto->find($id)->forceDelete();
+        return response()->json('Success', 200);
+
+
+    }
 }

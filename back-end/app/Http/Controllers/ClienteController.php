@@ -83,4 +83,12 @@ class ClienteController extends Controller
         return response()->json('Success', 200);
     }
 
+    public function forceDelete($id)
+    {
+        $post = $this->cliente->find($id)->forceDelete();
+        return response()->json('Success', 200);
+
+
+    }
+
 }

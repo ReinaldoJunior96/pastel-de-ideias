@@ -21,6 +21,8 @@ Route::controller(ClienteController::class)->group(function () {
     Route::get('/clientes/apagados', 'onlyTrashed')->name('listar.clientes.deletados');
     Route::put('/clientes/restaurar-cliente/{id}', 'restoreTranshed')->name('restaurar.cliente.deletado');
 
+    Route::delete('/clientes/apagar-permanentemente/{id}', 'forceDelete')->name('apagar.cliente.permanentemente');
+
 
     Route::get('/clientes', 'index')->name('listar.clientes');
     Route::get('/clientes/{id}', 'show')->name('listar.unico.cliente');
@@ -35,6 +37,8 @@ Route::controller(PedidoController::class)->group(function () {
     Route::get('/pedidos/apagados', 'onlyTrashed')->name('listar.pedidos.deletados');
     Route::put('/pedidos/restaurar-pedido/{id}', 'restoreTranshed')->name('restaurar.pedido.deletado');
 
+    Route::delete('/pedidos/apagar-permanentemente/{id}', 'forceDelete')->name('apagar.pedido.permanentemente');
+
     Route::get('/pedidos', 'index')->name('listar.pedidos');
     Route::get('/pedidos/{id}', 'show')->name('listar.unico.pedido');
 
@@ -48,6 +52,7 @@ Route::controller(ProdutoController::class)->group(function () {
     Route::get('/produtos/apagados', 'onlyTrashed')->name('listar.produtos.deletados');
     Route::put('/produtos/restaurar-produto/{id}', 'restoreTranshed')->name('restaurar.produto.deletado');
 
+    Route::delete('/produtos/apagar-permanentemente/{id}', 'forceDelete')->name('apagar.produto.permanentemente');
 
 
 
