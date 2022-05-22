@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,12 @@ Route::controller(PedidoController::class)->group(function () {
     Route::post('/pedidos', 'store')->name('criar.pedido');
     Route::put('/pedidos/alterar/{id}', 'update')->name('update.pedido');
     Route::delete('/pedidos/deletar/{id}', 'delete')->name('delete.pedido');
+});
+
+Route::controller(ProdutoController::class)->group(function () {
+    Route::get('/produtos', 'index')->name('listar.produtos');
+    Route::get('/produtos/{id}', 'show')->name('listar.unico.produto');
+    Route::post('/produtos', 'store')->name('criar.produto');
+    Route::post('/produtos/alterar/{id}', 'update')->name('update.produto');
+    Route::delete('/produtos/deletar/{id}', 'delete')->name('delete.produto');
 });
