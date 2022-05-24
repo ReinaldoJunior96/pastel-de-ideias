@@ -2,11 +2,12 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
-        displayPedido: 'hidden',
+        displayPedido: 'block',
     },
     mutations: {
         salvarPedido(){
-            state.displayPedido = 'block';
+            console.log('reinaldo')
+            this.state.displayPedido = 'block';
         }
     }
 })
