@@ -21,7 +21,6 @@
         <div class="">
           <input type="file">
         </div>
-
       </div>
       <div class="flex justify-center gap-3 -mb-4 mb-5">
         <button class="bg-red-500 py-2 px-10 text-white font-bold rounded-3xl uppercase">Limpar</button>
