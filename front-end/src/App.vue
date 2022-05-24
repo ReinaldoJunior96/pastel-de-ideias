@@ -3,8 +3,8 @@
     <div class="">
       <img src="./assets/images/wave.svg" alt="">
     </div>
-    <div class="flex flex-col absolute top-10">
-      <div class="flex justify-center">
+    <div class="flex flex-col -mt-[430px]">
+      <div class="flex justify-center ">
         <img class="w-4/12" src="./assets/images/Logo-pastel.png" alt="">
       </div>
       <Formulario/>

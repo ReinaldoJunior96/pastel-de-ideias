@@ -1,5 +1,5 @@
 <template>
-  <div :class="$store.state.displayPedido" class="pt-24 animate__animated animate__bounceInUp">
+  <div :class="$store.state.displayPedido" class="pt-16 animate__animated animate__bounceInUp">
     <div class="flex justify-center gap-10 items-center">
       <div class="h-[1px] w-4/12 bg-red-500"></div>
       <span class="font-bold text-base text-secondary-color">Veja como será apresentado ao cliente</span>
