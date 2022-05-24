@@ -1,7 +1,7 @@
-# Vue 3 + Vite
+## Front-end Pastel de Ideias
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+<h3>Para iniciar o projeto siga os passos a seguir:
+</h3>
+- ["npm install ou npm i" - para instalar as dependências]
+- ["npm run dev" - para iniciar o projeto]
+- [Lembre-se que o projeto ele vai ficar rodando na porta 3000]
